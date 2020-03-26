@@ -29,4 +29,15 @@
       </audio>
     </div>
   </div>
+
+  <mat-basic-audio-player
+    *ngIf="blobUrl"
+    [audioUrl]="blobUrl"
+    [title]="msbapTitle"
+    [autoPlay]="false"
+    muted="muted"
+    [displayTitle]="msbapDisplayTitle"
+    [displayVolumeControls]="true"
+  >
+  </mat-basic-audio-player>
 </div>

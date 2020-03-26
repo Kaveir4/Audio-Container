@@ -7,50 +7,20 @@ import { DomSanitizer } from "@angular/platform-browser";
   styleUrls: ["./app.component.css"]
 })
 @Component({
-  selector: "app-root",
-  template: ``,
-  styles: [
-    `
-      .start-button {
-        background-color: #7ffe9f; /* Green */
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin-bottom: 10px;
-      }
-      .stop-button {
-        background-color: rgba(118, 146, 254, 0.69); /* Green */
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin-bottom: 10px;
-      }
-      .cancel-button {
-        background-color: #af7541; /* Green */
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin-bottom: 10px;
-      }
-    `
-  ]
+  selector: "app-root"
 })
 export class AppComponent implements OnDestroy {
+  msbapTitle = "Audio Title";
+
+  msbapAudioUrl;
+  // Display volume controls
+  msaapDisplayVolumeControls = false;
+  // Display title
+  msbapDisplayTitle = false;
+
   isRecording = false;
-  recordedTime;
-  blobUrl;
+  recordedTime: any;
+  blobUrl: any;
 
   constructor(
     private audioRecordingService: AudioRecordingService,
@@ -68,6 +38,7 @@ export class AppComponent implements OnDestroy {
       this.blobUrl = this.sanitizer.bypassSecurityTrustUrl(
         URL.createObjectURL(data.blob)
       );
+      console.log(this.blobUrl);
     });
   }
 

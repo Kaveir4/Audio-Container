@@ -1,11 +1,12 @@
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { AudioRecordingService } from "./audio-recording.service";
 import { AppComponent } from "./app.component";
+import { BrowserModule } from "@angular/platform-browser";
+import { AudioRecordingService } from "./audio-recording.service";
+import { NgxAudioPlayerModule } from "ngx-audio-player";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule],
+  imports: [BrowserModule, NgxAudioPlayerModule],
   providers: [AudioRecordingService],
   bootstrap: [AppComponent]
 })

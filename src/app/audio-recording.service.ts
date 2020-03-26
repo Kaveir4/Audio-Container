@@ -55,7 +55,7 @@ export class AudioRecordingService {
   private record() {
     this.recorder = new RecordRTC.StereoAudioRecorder(this.stream, {
       type: "audio",
-      mimeType: "audio/webm"
+      mimeType: "audio/ogg"
     });
 
     this.recorder.record();
@@ -64,14 +64,14 @@ export class AudioRecordingService {
       const currentTime = moment();
       const diffTime = moment.duration(currentTime.diff(this.startTime));
       const time =
-        this.toString(diffTime.minutes()) +
+        this.convertString(diffTime.minutes()) +
         ":" +
-        this.toString(diffTime.seconds());
+        this.convertString(diffTime.seconds());
       this._recordingTime.next(time);
     }, 1000);
   }
 
-  private toString(value) {
+  private convertString(value) {
     let val = value;
     if (!value) {
       val = "00";
